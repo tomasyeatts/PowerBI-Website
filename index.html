@@ -1,0 +1,382 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andes Analytics — Power BI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-neutral-50 text-neutral-900">
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-2xl bg-neutral-900 text-white grid place-items-center font-bold">AA</div>
+        <span class="font-semibold tracking-tight" data-i18n="brand">Andes Analytics</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-5 text-sm">
+        <a href="#solutions" class="hover:text-neutral-600 transition-colors" data-i18n="nav_solutions">Soluciones</a>
+        <a href="#work" class="hover:text-neutral-600 transition-colors" data-i18n="nav_cases">Casos</a>
+        <a href="#featured" class="hover:text-neutral-600 transition-colors" data-i18n="nav_featured">Demo</a>
+        <a href="#process" class="hover:text-neutral-600 transition-colors" data-i18n="nav_process">Metodología</a>
+        <a href="#pricing" class="hover:text-neutral-600 transition-colors" data-i18n="nav_pricing">Planes</a>
+        <a href="#faq" class="hover:text-neutral-600 transition-colors" data-i18n="nav_faq">FAQs</a>
+        <a href="#contact" class="inline-flex rounded-xl px-4 py-2 bg-neutral-900 text-white hover:bg-neutral-800 transition" data-i18n="book_call">Agendar llamada</a>
+        <button id="langBtn" class="rounded-xl border border-neutral-300 px-3 py-1 hover:bg-white">EN</button>
+      </nav>
+    </div>
+  </header>
+  <section class="relative overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-600">
+          <span data-i18n="hero_badge">Dashboards • Automatización • Gobierno de datos</span>
+        </div>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-bold tracking-tight" data-i18n="hero_title">BI de clase empresarial con Power BI</h1>
+        <p class="mt-4 text-neutral-700 text-lg" data-i18n="hero_sub">Diseñamos, modelamos y operamos analítica para que tu equipo tome decisiones con confianza. Desde KPI ejecutivos hasta tableros operativos y automatizaciones.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#contact" class="rounded-2xl px-5 py-3 bg-neutral-900 text-white hover:bg-neutral-800 transition" data-i18n="cta_primary">Solicitar consultoría</a>
+          <a href="#featured" class="rounded-2xl px-5 py-3 border border-neutral-300 hover:bg-white transition" data-i18n="cta_secondary">Ver demo</a>
+        </div>
+        <div class="mt-8 flex items-center gap-6 text-sm text-neutral-600">
+          <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span> <span data-i18n="hero_meta1">Entrega inicial en 2–3 semanas</span></div>
+          <div data-i18n="hero_meta2">Equipo senior • Español/English</div>
+        </div>
+        <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 opacity-70">
+          <div class="h-9 bg-neutral-200 rounded"></div>
+          <div class="h-9 bg-neutral-200 rounded"></div>
+          <div class="h-9 bg-neutral-200 rounded"></div>
+          <div class="h-9 bg-neutral-200 rounded"></div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="rounded-3xl bg-white shadow-xl p-4 border border-neutral-200">
+          <canvas id="chart1" class="rounded-2xl w-full h-56"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="solutions" class="bg-white border-y border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="solutionsH">Soluciones</h2>
+      <p class="mt-2 text-neutral-700 max-w-3xl" data-i18n="solutionsP">Paquetes claros que combinan diseño de dashboards, modelado, automatización y gobierno para empresas que necesitan resultados rápidos y escalables.</p>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <h3 class="font-semibold text-lg" data-i18n="sol1h">KPI Ejecutivos</h3>
+          <p class="mt-2 text-neutral-700" data-i18n="sol1p">Una única vista del negocio para dirección, con métricas confiables y drill-through.</p>
+          <ul class="mt-4 list-disc pl-5 text-sm text-neutral-700 space-y-1">
+            <li data-i18n="sol1b1">Definición de KPIs y contrato de métricas</li>
+            <li data-i18n="sol1b2">Modelo estrella y performance</li>
+            <li data-i18n="sol1b3">Seguridad a nivel de fila</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <h3 class="font-semibold text-lg" data-i18n="sol2h">Operaciones & Alertas</h3>
+          <p class="mt-2 text-neutral-700" data-i18n="sol2p">Tableros diarios y workflows con Power Automate para actuar a tiempo.</p>
+          <ul class="mt-4 list-disc pl-5 text-sm text-neutral-700 space-y-1">
+            <li data-i18n="sol2b1">Refresh incremental y horarios</li>
+            <li data-i18n="sol2b2">Alertas por excepción</li>
+            <li data-i18n="sol2b3">Distribución de reportes (PDF/Email/Teams)</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <h3 class="font-semibold text-lg" data-i18n="sol3h">Gobierno & Capacitación</h3>
+          <p class="mt-2 text-neutral-700" data-i18n="sol3p">Lineamientos, acceso y entrenamiento para escalar BI de forma segura.</p>
+          <ul class="mt-4 list-disc pl-5 text-sm text-neutral-700 space-y-1">
+            <li data-i18n="sol3b1">Workspace/roles/licenciamiento</li>
+            <li data-i18n="sol3b2">Revisión DAX/Power Query</li>
+            <li data-i18n="sol3b3">Workshops a medida</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="work" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="casesH">Casos</h2>
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <article class="rounded-2xl border border-neutral-200 bg-white p-6">
+        <div class="text-xs text-neutral-500" data-i18n="c1tag">Retail / E-commerce</div>
+        <h3 class="font-semibold mt-1 text-lg" data-i18n="c1title">Ventas unificadas LATAM</h3>
+        <p class="mt-2 text-neutral-700" data-i18n="c1desc">POS, e-commerce y mayoristas en un único modelo con RLS. KPIs ejecutivos con drill hasta SKU/talle/color.</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="text-xs rounded-full bg-neutral-100 px-3 py-1">Refresh 24h</span>
+          <span class="text-xs rounded-full bg-neutral-100 px-3 py-1">-70% tiempo manual</span>
+          <span class="text-xs rounded-full bg-neutral-100 px-3 py-1">+18% time-to-decision</span>
+        </div>
+      </article>
+      <article class="rounded-2xl border border-neutral-200 bg-white p-6">
+        <div class="text-xs text-neutral-500" data-i18n="c2tag">Operaciones</div>
+        <h3 class="font-semibold mt-1 text-lg" data-i18n="c2title">Alertas de reposición</h3>
+        <p class="mt-2 text-neutral-700" data-i18n="c2desc">Puntos de pedido con alertas vía Power Automate y PDFs diarios a gerentes.</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="text-xs rounded-full bg-neutral-100 px-3 py-1">22% menos quiebres</span>
+          <span class="text-xs rounded-full bg-neutral-100 px-3 py-1">+10% sell-through</span>
+          <span class="text-xs rounded-full bg-neutral-100 px-3 py-1">Emails automáticos</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section id="featured" class="bg-neutral-50 border-y border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex items-start justify-between gap-6 flex-col lg:flex-row">
+        <div class="max-w-2xl">
+          <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="featuredH">Demo (anonimizada)</h2>
+          <p class="mt-3 text-neutral-700" data-i18n="featuredP">Vistas inspiradas en dashboards de producción para una marca de indumentaria outdoor en Argentina. Imágenes con valores ficticios.</p>
+          <ul class="mt-4 list-disc pl-5 text-sm text-neutral-700 space-y-1">
+            <li data-i18n="fb1">Única fuente de verdad: POS/E-comm/Mayoristas</li>
+            <li data-i18n="fb2">Acceso por rol (tienda, región, canal)</li>
+            <li data-i18n="fb3">Mobile-friendly con drill-through</li>
+          </ul>
+          <a href="mailto:" class="mt-6 inline-flex rounded-xl px-4 py-2 bg-neutral-900 text-white hover:bg-neutral-800" data-i18n="viewPrivate">Solicitar demo privada (NDA)</a>
+          <p class="mt-2 text-xs text-neutral-500" data-i18n="conf_note">No se muestran montos, unidades, precios ni datos de clientes.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 w-full lg:w-auto lg:min-w-[520px]">
+          <div class="rounded-2xl border border-neutral-200 bg-white shadow-sm overflow-hidden p-4">
+            <canvas id="chart2" class="w-full h-48"></canvas>
+            <div class="p-1 text-sm text-neutral-500" data-i18n="chart2">Rendimiento por canal</div>
+          </div>
+          <div class="rounded-2xl border border-neutral-200 bg-white shadow-sm overflow-hidden p-4">
+            <canvas id="chart3" class="w-full h-48"></canvas>
+            <div class="p-1 text-sm text-neutral-500" data-i18n="chart3">Rendimiento por tienda</div>
+          </div>
+          <div class="rounded-2xl border border-neutral-200 bg-white shadow-sm overflow-hidden p-4">
+            <canvas id="chart4" class="w-full h-48"></canvas>
+            <div class="p-1 text-sm text-neutral-500" data-i18n="chart4">Detalle SKU/talle/color</div>
+          </div>
+          <!-- Additional chart  could be added here if needed -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="process" class="bg-white border-y border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="processH">Metodología</h2>
+      <div class="mt-8 grid md:grid-cols-4 gap-6">
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <div class="text-sm text-neutral-500">01</div>
+          <h3 class="font-semibold mt-1" data-i18n="p1t">Descubrimiento</h3>
+          <p class="mt-2 text-neutral-700 text-sm" data-i18n="p1d">Objetivos, stakeholders, KPIs y fuentes. Diagnóstico en 60–90 min.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <div class="text-sm text-neutral-500">02</div>
+          <h3 class="font-semibold mt-1" data-i18n="p2t">Blueprint</h3>
+          <p class="mt-2 text-neutral-700 text-sm" data-i18n="p2d">Contrato de métricas, modelo de datos, wireframes y plan de licencias.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <div class="text-sm text-neutral-500">03</div>
+          <h3 class="font-semibold mt-1" data-i18n="p3t">Build</h3>
+          <p class="mt-2 text-neutral-700 text-sm" data-i18n="p3d">Sprints con demos semanales. DAX y Power Query orientados a performance.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <div class="text-sm text-neutral-500">04</div>
+          <h3 class="font-semibold mt-1" data-i18n="p4t">Go-Live + Capacitación</h3>
+          <p class="mt-2 text-neutral-700 text-sm" data-i18n="p4d">Deploy en Power BI Service, refresh/alertas y entrenamiento a usuarios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="pricing" class="bg-neutral-50 border-y border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="pricingH">Planes</h2>
+      <p class="mt-2 text-neutral-700 max-w-2xl" data-i18n="pricingP">Contratos claros. Precio fijo una vez definido el alcance.</p>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm relative">
+          <h3 class="font-semibold text-lg" data-i18n="t1n">Starter</h3>
+          <p class="mt-1 text-3xl font-bold" data-i18n="t1p">US$1.200</p>
+          <p class="mt-1 text-neutral-600" data-i18n="t1d">1 tablero KPI • 1–2 fuentes</p>
+          <ul class="mt-4 text-sm text-neutral-700 list-disc pl-5 space-y-1">
+            <li data-i18n="t1b1">Workshop de métricas</li>
+            <li data-i18n="t1b2">Modelo + DAX</li>
+            <li data-i18n="t1b3">Refresh programado</li>
+            <li data-i18n="t1b4">Capacitación básica</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-flex w-full items-center justify-center rounded-xl px-4 py-2 border border-neutral-300 hover:bg-neutral-50" data-i18n="cta_start">Iniciar proyecto</a>
+        </div>
+        <div class="rounded-2xl border border-neutral-900 bg-white p-6 shadow-sm relative">
+          <span class="absolute -top-3 right-4 rounded-full bg-neutral-900 text-white text-xs px-3 py-1" data-i18n="most_popular">Más Popular</span>
+          <h3 class="font-semibold text-lg" data-i18n="t2n">Growth</h3>
+          <p class="mt-1 text-3xl font-bold" data-i18n="t2p">US$2.800</p>
+          <p class="mt-1 text-neutral-600" data-i18n="t2d">Suite por área • 3–5 fuentes</p>
+          <ul class="mt-4 text-sm text-neutral-700 list-disc pl-5 space-y-1">
+            <li data-i18n="t2b1">Modelo estrella</li>
+            <li data-i18n="t2b2">RLS + gobernanza</li>
+            <li data-i18n="t2b3">Emails automáticos</li>
+            <li data-i18n="t2b4">Training al equipo</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-flex w-full items-center justify-center rounded-xl px-4 py-2 bg-neutral-900 text-white hover:bg-neutral-800" data-i18n="cta_book">Agendar discovery</a>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm relative">
+          <h3 class="font-semibold text-lg" data-i18n="t3n">Retainer</h3>
+          <p class="mt-1 text-3xl font-bold" data-i18n="t3p">US$1.000/mes</p>
+          <p class="mt-1 text-neutral-600" data-i18n="t3d">Soporte y mejoras continuas</p>
+          <ul class="mt-4 text-sm text-neutral-700 list-disc pl-5 space-y-1">
+            <li data-i18n="t3b1">Roadmap & SLAs</li>
+            <li data-i18n="t3b2">Backlog mensual</li>
+            <li data-i18n="t3b3">Checks de calidad</li>
+            <li data-i18n="t3b4">Pedidos ad-hoc</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-flex w-full items-center justify-center rounded-xl px-4 py-2 border border-neutral-300 hover:bg-neutral-50" data-i18n="cta_waitlist">Unirme a la lista</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="faqH">Preguntas frecuentes</h2>
+    <div class="mt-6 grid md:grid-cols-2 gap-6 text-neutral-800">
+      <details class="rounded-xl bg-white border border-neutral-200 p-5">
+        <summary class="font-medium cursor-pointer" data-i18n="q1">¿Trabajan con NDA?</summary>
+        <p class="mt-3 text-sm text-neutral-700" data-i18n="a1">Sí. Podemos firmar un NDA y preparar demos con datos ficticios.</p>
+      </details>
+      <details class="rounded-xl bg-white border border-neutral-200 p-5">
+        <summary class="font-medium cursor-pointer" data-i18n="q2">¿Quién opera el servicio?</summary>
+        <p class="mt-3 text-sm text-neutral-700" data-i18n="a2">Un equipo senior de analistas y especialistas Power BI. Asignamos un PM y un tech lead.</p>
+      </details>
+      <details class="rounded-xl bg-white border border-neutral-200 p-5">
+        <summary class="font-medium cursor-pointer" data-i18n="q3">¿Cómo manejan la seguridad?</summary>
+        <p class="mt-3 text-sm text-neutral-700" data-i18n="a3">RLS, acceso por roles, workspaces separados y revisión de permisos antes de cada go-live.</p>
+      </details>
+      <details class="rounded-xl bg-white border border-neutral-200 p-5">
+        <summary class="font-medium cursor-pointer" data-i18n="q4">¿Pueden capacitar a mi equipo?</summary>
+        <p class="mt-3 text-sm text-neutral-700" data-i18n="a4">Sí, con workshops de Power Query, DAX y mejores prácticas.</p>
+      </details>
+    </div>
+  </section>
+  <section id="contact" class="bg-white border-y border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="contactH">Conversemos</h2>
+      <p class="mt-2 text-neutral-700 max-w-2xl" data-i18n="contactP">Contanos tus objetivos y fuentes de datos. Respondemos en 24 horas con próximos pasos.</p>
+      <div class="mt-8 grid lg:grid-cols-2 gap-8">
+        <form class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6 space-y-4" action="mailto:" method="post">
+          <div>
+            <label class="text-sm text-neutral-600" data-i18n="contactName">Nombre</label>
+            <input class="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-3 py-2" required />
+          </div>
+          <div>
+            <label class="text-sm text-neutral-600" data-i18n="contactEmail">Email laboral</label>
+            <input type="email" class="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-3 py-2" required />
+          </div>
+          <div>
+            <label class="text-sm text-neutral-600" data-i18n="contactCompany">Empresa</label>
+            <input class="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-3 py-2" />
+          </div>
+          <div>
+            <label class="text-sm text-neutral-600" data-i18n="contactNeed">¿Qué necesitás?</label>
+            <textarea class="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-3 py-2 h-28" placeholder="Dashboards, modelado, automatización, capacitación…"></textarea>
+          </div>
+          <button class="w-full rounded-2xl bg-neutral-900 text-white px-4 py-2 hover:bg-neutral-800" data-i18n="contactSend">Enviar</button>
+          <p class="text-xs text-neutral-500"><span data-i18n="contactAlt">O escribinos:</span> </p>
+        </form>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 class="font-semibold" data-i18n="expectH">Qué esperar</h3>
+          <ul class="mt-3 list-disc pl-5 text-sm text-neutral-700 space-y-2">
+            <li>Intro call de 15–30 min</li>
+            <li>Assessment y quick wins</li>
+            <li>Alcance, timeline y precio fijo</li>
+            <li>Demos semanales</li>
+            <li>Capacitación + soporte</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-neutral-600 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2025 Andes Analytics. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-neutral-900">LinkedIn</a>
+        <a href="mailto:" class="hover:text-neutral-900">Email</a>
+        <a href="#" class="hover:text-neutral-900">Calendly</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+  // i18n dictionary embedded in script
+  const translations = {"es": {"brand": "Andes Analytics", "hero_badge": "Dashboards \u2022 Automatizaci\u00f3n \u2022 Gobierno de datos", "hero_title": "BI de clase empresarial con Power BI", "hero_sub": "Dise\u00f1amos, modelamos y operamos anal\u00edtica para que tu equipo tome decisiones con confianza. Desde KPI ejecutivos hasta tableros operativos y automatizaciones.", "cta_primary": "Solicitar consultor\u00eda", "cta_secondary": "Ver demo", "hero_meta1": "Entrega inicial en 2\u20133 semanas", "hero_meta2": "Equipo senior \u2022 Espa\u00f1ol/English", "solutionsH": "Soluciones", "solutionsP": "Paquetes claros que combinan dise\u00f1o de dashboards, modelado, automatizaci\u00f3n y gobierno para empresas que necesitan resultados r\u00e1pidos y escalables.", "sol1h": "KPI Ejecutivos", "sol1p": "Una \u00fanica vista del negocio para direcci\u00f3n, con m\u00e9tricas confiables y drill-through.", "sol1b1": "Definici\u00f3n de KPIs y contrato de m\u00e9tricas", "sol1b2": "Modelo estrella y performance", "sol1b3": "Seguridad a nivel de fila", "sol2h": "Operaciones & Alertas", "sol2p": "Tableros diarios y workflows con Power Automate para actuar a tiempo.", "sol2b1": "Refresh incremental y horarios", "sol2b2": "Alertas por excepci\u00f3n", "sol2b3": "Distribuci\u00f3n de reportes (PDF/Email/Teams)", "sol3h": "Gobierno & Capacitaci\u00f3n", "sol3p": "Lineamientos, acceso y entrenamiento para escalar BI de forma segura.", "sol3b1": "Workspace/roles/licenciamiento", "sol3b2": "Revisi\u00f3n DAX/Power Query", "sol3b3": "Workshops a medida", "casesH": "Casos", "c1tag": "Retail / E-commerce", "c1title": "Ventas unificadas LATAM", "c1desc": "POS, e-commerce y mayoristas en un \u00fanico modelo con RLS. KPIs ejecutivos con drill hasta SKU/talle/color.", "c2tag": "Operaciones", "c2title": "Alertas de reposici\u00f3n", "c2desc": "Puntos de pedido con alertas v\u00eda Power Automate y PDFs diarios a gerentes.", "featuredH": "Demo (anonimizada)", "featuredP": "Vistas inspiradas en dashboards de producci\u00f3n para una marca de indumentaria outdoor en Argentina. Im\u00e1genes con valores ficticios.", "fb1": "\u00danica fuente de verdad: POS/E-comm/Mayoristas", "fb2": "Acceso por rol (tienda, regi\u00f3n, canal)", "fb3": "Mobile-friendly con drill-through", "viewPrivate": "Solicitar demo privada (NDA)", "conf_note": "No se muestran montos, unidades, precios ni datos de clientes.", "processH": "Metodolog\u00eda", "p1t": "Descubrimiento", "p1d": "Objetivos, stakeholders, KPIs y fuentes. Diagn\u00f3stico en 60\u201390 min.", "p2t": "Blueprint", "p2d": "Contrato de m\u00e9tricas, modelo de datos, wireframes y plan de licencias.", "p3t": "Build", "p3d": "Sprints con demos semanales. DAX y Power Query orientados a performance.", "p4t": "Go-Live + Capacitaci\u00f3n", "p4d": "Deploy en Power BI Service, refresh/alertas y entrenamiento a usuarios.", "pricingH": "Planes", "pricingP": "Contratos claros. Precio fijo una vez definido el alcance.", "t1n": "Starter", "t1p": "US$1.200", "t1d": "1 tablero KPI \u2022 1\u20132 fuentes", "t1b1": "Workshop de m\u00e9tricas", "t1b2": "Modelo + DAX", "t1b3": "Refresh programado", "t1b4": "Capacitaci\u00f3n b\u00e1sica", "t2n": "Growth", "t2p": "US$2.800", "t2d": "Suite por \u00e1rea \u2022 3\u20135 fuentes", "t2b1": "Modelo estrella", "t2b2": "RLS + gobernanza", "t2b3": "Emails autom\u00e1ticos", "t2b4": "Training al equipo", "most_popular": "M\u00e1s Popular", "t3n": "Retainer", "t3p": "US$1.000/mes", "t3d": "Soporte y mejoras continuas", "t3b1": "Roadmap & SLAs", "t3b2": "Backlog mensual", "t3b3": "Checks de calidad", "t3b4": "Pedidos ad-hoc", "cta_start": "Iniciar proyecto", "cta_book": "Agendar discovery", "cta_waitlist": "Unirme a la lista", "faqH": "Preguntas frecuentes", "q1": "\u00bfTrabajan con NDA?", "a1": "S\u00ed. Podemos firmar un NDA y preparar demos con datos ficticios.", "q2": "\u00bfQui\u00e9n opera el servicio?", "a2": "Un equipo senior de analistas y especialistas Power BI. Asignamos un PM y un tech lead.", "q3": "\u00bfC\u00f3mo manejan la seguridad?", "a3": "RLS, acceso por roles, workspaces separados y revisi\u00f3n de permisos antes de cada go-live.", "q4": "\u00bfPueden capacitar a mi equipo?", "a4": "S\u00ed, con workshops de Power Query, DAX y mejores pr\u00e1cticas.", "contactH": "Conversemos", "contactP": "Contanos tus objetivos y fuentes de datos. Respondemos en 24 horas con pr\u00f3ximos pasos.", "contactName": "Nombre", "contactEmail": "Email laboral", "contactCompany": "Empresa", "contactNeed": "\u00bfQu\u00e9 necesit\u00e1s?", "contactSend": "Enviar", "contactAlt": "O escribinos:", "expectH": "Qu\u00e9 esperar", "chart1": "KPI mensual", "chart2": "Rendimiento por canal", "chart3": "Rendimiento por tienda", "chart4": "Detalle SKU/talle/color"}, "en": {"brand": "Andes Analytics", "hero_badge": "Dashboards \u2022 Automation \u2022 Data Governance", "hero_title": "Enterprise-grade BI with Power BI", "hero_sub": "We design, model, and operate analytics so your teams can decide with confidence\u2014from executive KPIs to operational dashboards and automations.", "cta_primary": "Request consulting", "cta_secondary": "View demo", "hero_meta1": "Initial delivery in 2\u20133 weeks", "hero_meta2": "Senior team \u2022 English/Spanish", "solutionsH": "Solutions", "solutionsP": "Clear packages combining dashboard design, modeling, automation, and governance\u2014built for fast, scalable results.", "sol1h": "Executive KPIs", "sol1p": "A single source of truth for leadership with reliable metrics and drill-through.", "sol1b1": "KPI definition & metric contract", "sol1b2": "Star schema & performance", "sol1b3": "Row-level security", "sol2h": "Ops & Alerts", "sol2p": "Daily dashboards and Power Automate workflows to act in time.", "sol2b1": "Incremental + scheduled refresh", "sol2b2": "Exception alerts", "sol2b3": "Report distribution (PDF/Email/Teams)", "sol3h": "Governance & Enablement", "sol3p": "Guardrails, access, and training to scale BI safely.", "sol3b1": "Workspaces/roles/licensing", "sol3b2": "DAX/Power Query reviews", "sol3b3": "Targeted workshops", "casesH": "Case Studies", "c1tag": "Retail / E-commerce", "c1title": "Unified LATAM sales", "c1desc": "POS, e-comm, and wholesale consolidated in one model with RLS. Executive KPIs with drill to SKU/size/color.", "c2tag": "Operations", "c2title": "Replenishment alerts", "c2desc": "Reorder points with Power Automate alerts and daily PDFs to managers.", "featuredH": "Demo (anonymized)", "featuredP": "Previews inspired by production dashboards for an outdoor apparel brand in Argentina. Images use mock values.", "fb1": "Single source of truth: POS/E-comm/Wholesale", "fb2": "Role-based access (store, region, channel)", "fb3": "Mobile-friendly with drill-through", "viewPrivate": "Request private demo (NDA)", "conf_note": "No sales amounts, units, prices, or customer data are shown here.", "processH": "Methodology", "p1t": "Discovery", "p1d": "Goals, stakeholders, KPIs and sources. 60\u201390 min assessment.", "p2t": "Blueprint", "p2d": "Metric contract, data model, wireframes and licensing plan.", "p3t": "Build", "p3d": "Sprints with weekly demos. Performance-oriented DAX & Power Query.", "p4t": "Go-Live + Training", "p4d": "Deploy to Power BI Service, refresh/alerts and user training.", "pricingH": "Plans", "pricingP": "Clear contracts. Fixed price once scope is defined.", "t1n": "Starter", "t1p": "US$1,200", "t1d": "One KPI dashboard \u2022 1\u20132 sources", "t1b1": "Metric workshop", "t1b2": "Data model & DAX", "t1b3": "Scheduled refresh", "t1b4": "Basic training", "t2n": "Growth", "t2p": "US$2,800", "t2d": "Department suite \u2022 3\u20135 sources", "t2b1": "Star schema", "t2b2": "RLS + governance", "t2b3": "Automated emails", "t2b4": "Team training", "most_popular": "Most Popular", "t3n": "Retainer", "t3p": "US$1,000/mo", "t3d": "Ongoing improvements & support", "t3b1": "Roadmap & SLAs", "t3b2": "Monthly backlog", "t3b3": "Quality checks", "t3b4": "Ad-hoc requests", "cta_start": "Start a project", "cta_book": "Book discovery", "cta_waitlist": "Join waitlist", "faqH": "FAQs", "q1": "Do you work under NDAs?", "a1": "Yes. We can sign an NDA and prepare demos with mock data.", "q2": "Who runs the service?", "a2": "A senior team of analysts and Power BI specialists with a PM and a tech lead.", "q3": "How do you handle security?", "a3": "RLS, role-based access, separate workspaces, and pre-go-live permission reviews.", "q4": "Can you train our team?", "a4": "Yes\u2014Power Query, DAX, and best practices workshops.", "contactH": "Let\u2019s talk", "contactP": "Tell us your goals and data sources. We\u2019ll reply within 24 hours with next steps.", "contactName": "Name", "contactEmail": "Work Email", "contactCompany": "Company", "contactNeed": "What do you need?", "contactSend": "Send", "contactAlt": "Or email us:", "expectH": "What to expect", "chart1": "Monthly KPI", "chart2": "Channel performance", "chart3": "Store performance", "chart4": "SKU/Size/Color detail"}};
+  let lang = 'es';
+  let i18n = translations[lang];
+  // function to apply translations to the page
+  function applyLang() {
+    i18n = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (i18n[key]) {
+        el.textContent = i18n[key];
+      }
+    });
+    document.documentElement.lang = lang;
+    document.getElementById('langBtn').textContent = lang === 'es' ? 'EN' : 'ES';
+  }
+  document.getElementById('langBtn').addEventListener('click', () => {
+    lang = lang === 'es' ? 'en' : 'es';
+    applyLang();
+  });
+  applyLang();
+  
+    // Generate random data for demo charts
+    function genData(points) {
+      return Array.from({ length: points }, () => Math.floor(Math.random() * 100) + 20);
+    }
+    const ctx1 = document.getElementById('chart1').getContext('2d');
+    new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        datasets: [{
+          label: i18n['chart1'],
+          data: genData(12),
+          fill: false,
+          tension: 0.3
+        }]
+      },
+      options: {
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+    const ctx2 = document.getElementById('chart2').getContext('2d');
+    new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Retail','E-comm','Mayorista'],
+        datasets: [{
+          label: i18n['chart2'],
+          data: genData(3)
+        }]
+      },
+      options: {
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+    const ctx3 = document.getElementById('chart3').getContext('2d');
+    new Chart(ctx3, {
+      type: 'bar',
+      data: {
+        labels: ['A','B','C','D','E','F'],
+        datasets: [{
+          label: i18n['chart3'],
+          data: genData(6)
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        scales: { x: { beginAtZero: true } }
+      }
+    });
+    const ctx4 = document.getElementById('chart4').getContext('2d');
+    new Chart(ctx4, {
+      type: 'bar',
+      data: {
+        labels: ['XS','S','M','L','XL'],
+        datasets: [{
+          label: i18n['chart4'],
+          data: genData(5)
+        }]
+      },
+      options: {
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+    
+  </script>
+</body>
+</html>
