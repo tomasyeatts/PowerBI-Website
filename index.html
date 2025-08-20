@@ -51,10 +51,23 @@
         </div>
       </div>
       <div class="relative">
-        <div class="rounded-3xl bg-white shadow-xl p-4 border border-neutral-200">
-          <!-- Hide the demo chart canvas and display a static dashboard image instead -->
-          <canvas id="chart1" class="rounded-2xl w-full h-56 hidden"></canvas>
-          <img src="c3_dashboard.jpg" alt="Dashboard demo" class="rounded-2xl w-full h-full object-cover">
+        <!-- Laptop mockup wrapping the dashboard image -->
+        <div class="rounded-3xl bg-white shadow-xl p-4 border border-neutral-200 flex justify-center">
+          <div class="relative w-full max-w-3xl">
+            <!-- Laptop screen border -->
+            <div class="border-[12px] border-neutral-800 rounded-t-2xl bg-neutral-900 relative">
+              <img
+                src="c3_dashboard.jpg"
+                alt="Demo de dashboard en Power BI (valores ficticios)"
+                class="block w-full h-auto rounded-lg"
+                loading="lazy"
+              />
+            </div>
+            <!-- Laptop base/keyboard -->
+            <div class="h-6 bg-neutral-800 rounded-b-2xl relative">
+              <div class="w-32 h-1.5 bg-neutral-600 mx-auto mt-2 rounded"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
